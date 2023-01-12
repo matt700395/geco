@@ -16,27 +16,14 @@ function CompetitionStart (props) {
     //const [ isGetId, setGetId ] = useState();
     const nevigate = useNavigate();
 
-    // const [formValue, setformValue] = useState({
-    //     gameSelect: isGameselect,
-    //     title: isTitle,
-    //     teamCount: isTeamCount,
-    //     peopleNum: isPeopleNum,
-    //     match: isMatch,
-    //   });
-
     const handleChange = (event) => {
-        // setformValue({
-        //   ...formValue,
-        //   [event.target.name]: event.target.setValue,
-        // });
-        // console.log("event.target.setValue", event.target.setValue);
-        // console.log("event.target.name", event.target.name);
+      
       }
     
       const handleClick = () => {
         // 아래쪽에 추가로 코드 넣어두었음
         console.log('action handleSubmit');
-        // console.log('formValue : ',formValue);
+        //console.log('formValue : ',formValue);
         console.log('base : ', props.base)
         //에어테이블 api 테이블 추가 요청
         props.base('galaxy').create([

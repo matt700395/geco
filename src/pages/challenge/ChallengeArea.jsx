@@ -12,4 +12,4 @@ function ChallengeArea(props) {
   )
 }
 
-export default ChallengeArea
+export default ChallengeArea;
