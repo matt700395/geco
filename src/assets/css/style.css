@@ -41,18 +41,27 @@
 
 /* 1. Theme default css */
 @import url('https://fonts.googleapis.com/css?family=Oxanium:400,500,600,700,800|Poppins:400,400i,500,500i,600,600i,700,700i&display=swap');
+
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @font-face {
     font-family: 'grinddemolished';
     src: url('../fonts/grind_demolished-webfont.woff2') format('woff2'),
          url('../fonts/grind_demolished-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+	
 }
 body {
 	font-family: 'Poppins', sans-serif;
 	font-weight: normal;
 	font-style: normal;
-	font-size: 15px;
+	font-size: 18px;
 	font-weight: 500;
 	color: #d4d4d4;
 }
@@ -150,7 +159,7 @@ li {
 	list-style: none
 }
 p {
-	font-size: 15px;
+	font-size: 18px;
 	font-weight: 500;
 	line-height: 28px;
 	color: #cbcbcb;
@@ -1154,6 +1163,7 @@ ul.minicart .cart-price .new {
 	margin-bottom: 15px;
 	line-height: .8;
 }
+
 .breadcrumb-content .breadcrumb {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -1186,7 +1196,7 @@ ul.minicart .cart-price .new {
 	content: "\f101";
 	font-weight: 600;
 	font-family: "Font Awesome 5 Free";
-	font-size: 12px;
+	font-size: 18px;
 }
 .game-overview-breadcrumb .breadcrumb-content .breadcrumb {
 	justify-content: flex-start;
@@ -1197,7 +1207,7 @@ ul.minicart .cart-price .new {
 }
 .game-overview-status ul li {
 	display: block;
-	font-size: 14px;
+	font-size: 100px;
 	font-weight: 600;
 	margin-bottom: 10px;
 }

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Switch,Route, Routes } from 'react-router-dom';
 import HomeTwo from './pages/homes/HomeTwo';
 import HomeOne from './pages/homes/HomeOne';
 import HomeThree from './pages/homes/HomeThree';
@@ -10,16 +10,22 @@ import AboutUs from './pages/aboutpage/aboutuspage/AboutUs';
 import Upcoming from './pages/aboutpage/upcoming/Upcoming';
 import GameSingle from './pages/aboutpage/singlegame/GameSingle';
 import Blogs from './pages/blogs/Blogs';
-import BlogDetails from './pages/blogdetails/BlogDetails'
-import ScrollToTopRoute from './components/scrolltotop/ScrollToTopRoute';
+import BlogDetails from './pages/blogdetails/BlogDetails';
 import HomeFour from './pages/homes/HomeFour';
 import HomeFive from './pages/homes/HomeFive';
 import HomeSix from './pages/homes/HomeSix';
 import HomeSeven from './pages/homes/HomeSeven';
+import Challenge from './pages/challenge/Challenge';
+import CompetitionStart from './pages/challenge/CompetitionStart';
+// import Airtable from 'airtable';
+import CompetitionDate from './pages/challenge/CompetitionDate';
+
 // import Loader from "react-js-loader";
+// var Airtable = require('airtable');
+// const base = new Airtable({ apiKey: 'keyouedxPNGaCEXQw'}).base('app0QOzYj61gyWZnu');
 
-
-
+var Airtable = require('airtable');
+var base = new Airtable({apiKey: 'keyouedxPNGaCEXQw'}).base('app0QOzYj61gyWZnu');
 
 
 function App() {
@@ -43,62 +49,39 @@ function App() {
     <div className="App">
       
      <Router>
-       
-        <Switch>
-        <ScrollToTopRoute exact={true} path='/'>
-          <HomeTwo/>
-        </ScrollToTopRoute>
-        <ScrollToTopRoute exact={true} path='/index-2'>
-        <HomeOne/>
-        </ScrollToTopRoute>
-        <ScrollToTopRoute exact={true} path='/index-3'>
-        <HomeThree/>
-        </ScrollToTopRoute>
-        <ScrollToTopRoute exact={true} path='/shop'>
-         <Shop/>
-        </ScrollToTopRoute>
-        <ScrollToTopRoute exact={true} path='/contact'>
-        <Contact/>
-        </ScrollToTopRoute>
-        <ScrollToTopRoute exact={true} path='/community'>
-        <Community/>
-        </ScrollToTopRoute>
-        <ScrollToTopRoute exact={true} path='/overview'>
-        <Overview/>
-        </ScrollToTopRoute>
+       <Routes>
+
+        <Route path="" element={<HomeTwo/>} />
+
+        <Route path="index-2" element={<HomeOne/>} />
+        <Route path="index-3" element={<HomeThree/>} />
+        <Route path="shop" element={<Shop/>} />
+        <Route path="contact" element={<Contact/>} />
+        <Route path="community" element={<Community/>} />
+        <Route path="overview" element={<Overview/>} />
+        <Route path="about-us" element={<AboutUs/>} />
+        <Route path="upcoming-games" element={<Upcoming/>} />
+        <Route path="game-single" element={<GameSingle/>} />
+        <Route path="blogs" element={<Blogs/>} />
+        <Route path="blog-details" element={<BlogDetails/>} />
+        <Route path="index-4" element={<HomeFour/>} />
+        <Route path="index-5" element={<HomeFive/>} />
+        <Route path="index-6" element={<HomeSix/>} />
+        <Route path="index-7" element={<HomeSeven/>} />
+        <Route path="challenge" element={<Challenge  base = {base}/>} />
         
-        <ScrollToTopRoute exact={true} path='/about-us'>
-        <AboutUs/>
-        </ScrollToTopRoute>
-        <ScrollToTopRoute exact={true} path='/upcoming-games'>
-        <Upcoming/>
-        </ScrollToTopRoute>
-        <ScrollToTopRoute exact={true} path='/game-single'>
-        <GameSingle/>
-        </ScrollToTopRoute>
-        
-        <ScrollToTopRoute exact={true} path='/blogs'>
-        <Blogs/>
-        </ScrollToTopRoute>
-        
-        <ScrollToTopRoute exact={true} path='/blog-details'>
-        <BlogDetails/>
-        </ScrollToTopRoute>
-        <ScrollToTopRoute exact={true} path='/index-4'>
-        <HomeFour/>
-        </ScrollToTopRoute>
-        <ScrollToTopRoute exact={true} path='/index-5'>
-        <HomeFive/>
-        </ScrollToTopRoute>
-        <ScrollToTopRoute exact={true} path='/index-6'>
-        <HomeSix/>
-        </ScrollToTopRoute>
-        <ScrollToTopRoute exact={true} path='/index-7'>
-        <HomeSeven/>
-        </ScrollToTopRoute>
-        
-     </Switch>
+        <Route path="challenge/start" element={<CompetitionStart base = {base}/>} />
+        <Route path="challenge/date" element={<CompetitionDate base = {base} />} />
+          {/* <Route path="tournament" element={<Tournament base = {base}/>} />
+          <Route path="detail" element={<CompetitionDetail  base = {base} />} />
+          <Route path="dash" element={<DashBoard  base = {base} />} /> */}
+
+      </Routes>
+
      </Router>
+
+
+
      
     </div>
   );
