@@ -2,20 +2,19 @@ import React from 'react'
 import HeaderTwo from '../../components/header/HeaderTwo'
 import Footer from '../../components/footer/Footer'
 import BreadCrumb from './BreadCrumb';
-import ChallengeArea from './ChallengeArea';
+import CompetitionDateArea from './CompetitionDateArea';
 
-function Challenge(props) {
+function CompetitionDate(props) {
   return (
 	<>
 	 <HeaderTwo/>
      <main>
         <BreadCrumb/>
-        <ChallengeArea base = {props.base}/>
+        <CompetitionDateArea base = {props.base}/>
 	 </main>
 	 <Footer/>
+   
 	</>
-
   )
 }
-
-export default Challenge;
+export default CompetitionDate;

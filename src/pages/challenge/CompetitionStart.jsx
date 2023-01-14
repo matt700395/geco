@@ -50,13 +50,18 @@ function CompetitionStart (props) {
             console.log('record : ', record);
 
             //버튼 클릭 -> api 요청 -> 페이지 이동
-            nevigate('challenge/date',
+            nevigate('/date',
             { state: {
               airtableId : airtableId,
             }})
 
           });
         });
+      }
+
+      const styleButton = {
+        marginLeft:'45%',
+        marginTop:'5vh'
       }
 
     return (
@@ -70,14 +75,16 @@ function CompetitionStart (props) {
             <TeamMatchSelect name = 'peopleNum' Inputlabel = '팀별 인원수를 선택해주세요' setValue = {setPeopleNum} onChange={handleChange} />
             <div style= {{padding:'0.7rem'}} ></div>
             <MatchingSelect name = 'match' Inputlabel = '매칭방법을 선택해주세요'setValue = {setMatch} onChange={handleChange} />
-          {/*
-          <ContainedButtons onClick={onClick} content ="다음" url='/date' />
-          */}
-            <button onClick={handleClick}>
-                다음
-            </button>
+
+            <div className="newsletter-form" style={styleButton}>
+                <button onClick={handleClick}>
+                Next
+                </button>
+            </div>
+
         </>
     )
 }
 
 export default CompetitionStart;
+//
