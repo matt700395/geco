@@ -2,27 +2,19 @@ import React from 'react'
 import HeaderTwo from '../../components/header/HeaderTwo'
 import Footer from '../../components/footer/Footer'
 import BreadCrumb from './BreadCrumb';
-import CompetitionDateArea from './CompetitionDateArea';
-import { useEffect } from 'react';
+import CompetitionDetailArea from './CompetitionDetailArea';
 
-function CompetitionDate(props) {
-  useEffect(()=> {
-
-    console.log();
-    
-  })
-
-
+function CompetitionDetail(props) {
   return (
 	<>
 	 <HeaderTwo/>
      <main>
         <BreadCrumb/>
-        <CompetitionDateArea base = {props.base}/>
+        <CompetitionDetailArea base = {props.base}/>
 	 </main>
 	 <Footer/>
    
 	</>
   )
 }
-export default CompetitionDate;
+export default CompetitionDetail;

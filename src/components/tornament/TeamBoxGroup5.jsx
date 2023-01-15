@@ -8,9 +8,9 @@ function TeamBoxGroup5(props) {
   return (
     <>
     <div>
-    <div style= {{padding:'5.3rem'}} ></div>
-    < VictoryBox teamname="우승" groupNum={props.groupNum} BoxNum={0} />
-    </div>
+      <div style= {{padding:'7rem'}} ></div>
+      < VictoryBox teamname="우승" groupNum={props.groupNum} BoxNum={0} />
+      </div>
     </>
   )
 }

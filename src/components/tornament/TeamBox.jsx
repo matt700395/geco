@@ -17,10 +17,10 @@ export default function TeamBox (props) {
         <>
             <div style={{display : 'flex'} }>
                 <div>
-                <TeamTextField groupNum={props.groupNum} BoxNum={props.BoxNum} teamname = {props.teamname}
-                setValueTeambox = {setValueTeambox} onChange={getValue}/>
+                    <TeamTextField groupNum={props.groupNum} BoxNum={props.BoxNum} teamname = {props.teamname}
+                        setValueTeambox = {setValueTeambox} onChange={getValue}/>
                 </div>
-                <hr className="hr-solid"></hr>
+                <hr className="hr-solid" style={{color:'ffff'}}></hr>
             </div>
         </>
 

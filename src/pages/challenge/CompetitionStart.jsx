@@ -6,6 +6,7 @@ import BasicTextFields from "../../components/challenge/TextField";
 import TeamMatchSelect from "../../components/challenge/TeamMatchSelect";
 import MatchingSelect from "../../components/challenge/MatchingSelect";
 import GameSelect from "../../components/challenge/GameSelect";
+import { useEffect } from "react";
 
 function CompetitionStart (props) {
     const [isGameselect, setGameselect] = useState('test');
@@ -15,6 +16,10 @@ function CompetitionStart (props) {
     const [ isMatch, setMatch ] = useState();
     //const [ isGetId, setGetId ] = useState();
     const nevigate = useNavigate();
+
+    useEffect(()=>{
+        console.log('base', props.base);
+    },[])
 
     const handleChange = (event) => {
       

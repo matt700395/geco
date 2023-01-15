@@ -21,10 +21,13 @@ function TeamBoxGroup1(props) {
       <div>
         < TeamBox groupNum={props.groupNum} BoxNum={0} teamname="팀1"  setValueGroup = {setValueGroup} onChange={getValue} />
         < TeamBox groupNum={props.groupNum} BoxNum={1} teamname="팀2"  setValueGroup = {setValueGroup} onChange={getValue} />
+        <div style= {{padding:'0.8rem'}} ></div>
         < TeamBox groupNum={props.groupNum} BoxNum={2} teamname="팀3"  setValueGroup = {setValueGroup} onChange={getValue} />
         < TeamBox groupNum={props.groupNum} BoxNum={3} teamname="팀4"  setValueGroup = {setValueGroup} onChange={getValue} />
+        <div style= {{padding:'0.8rem'}} ></div>
         < TeamBox groupNum={props.groupNum} BoxNum={4} teamname="팀5"  setValueGroup = {setValueGroup} onChange={getValue} />
         < TeamBox groupNum={props.groupNum} BoxNum={5} teamname="팀6"  setValueGroup = {setValueGroup} onChange={getValue} />
+        <div style= {{padding:'0.8rem'}} ></div>
         < TeamBox groupNum={props.groupNum} BoxNum={6} teamname="팀7"  setValueGroup = {setValueGroup} onChange={getValue} />
         < TeamBox groupNum={props.groupNum} BoxNum={7} teamname="팀8"  setValueGroup = {setValueGroup} onChange={getValue} />
       </div>

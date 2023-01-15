@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { ContextApi } from "../../components/contextapi/ContextApi";
 
-export default function Tournament (props) {
+export default function TournamentArea (props) {
     const [ isTBGJson, setTBGJson ] = useState(
             [[[],[],[],[],[],[],[],[]],[[],[],[],[]],[[],[]],[[]]]
     );
@@ -19,6 +19,7 @@ export default function Tournament (props) {
     useEffect(() => {
         console.log('useEffect 실행');
         console.log('air id :', location.state.airtableId);
+        
     },[])
 
     const dateSave = () => {
@@ -43,7 +44,7 @@ export default function Tournament (props) {
               console.log("group1 : ",record.get('group1'));
               console.log("group2 : ",record.get('group2'));
               console.log("group3 : ",record.get('group3'));
-
+              
               navigate('/dash',
               { state: {
                 airtableId : record.getId(), //상세페이지로 넘어가면서 
@@ -52,12 +53,14 @@ export default function Tournament (props) {
           });
     }
 
-    return(
-            <div>
-                <div>
-                    <p>대회코드 : #1234</p>
-                </div>
+    const styleButton = {
+      marginLeft:'42%',
+      marginTop:'5vh'
+    }
 
+    return(
+      <section className="shop-area pt-120 pb-90">
+      <div className="container">
                 <div style={{width:'100%', height:'auto', display:'flex', justifyContent:'center', alignItems:'center'}}>
                     <div style={{display : 'flex'}}>
                         < ContextApi.Provider value = {{isTBGJson, setTBGJson}} >
@@ -68,18 +71,15 @@ export default function Tournament (props) {
                             <TeamBoxGroup5 groupNum = {3} />
                           
                         </ContextApi.Provider>
-
                     </div>
                 </div>
 
-                <div style={{display : 'flex'}}>
-                    <button onClick = {dateSave}>
-                        입력 완료
-                    </button>
+                <div className="newsletter-form" style={styleButton}>
+                  <button onClick={dateSave}>
+                  Submit
+                  </button>
                 </div>
-
-                <p>{isTBGJson[2][1]}</p>
-
             </div>
+            </section>
     );
 }

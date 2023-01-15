@@ -17,8 +17,8 @@ export default function TeamTextField( props ) {
 
   useEffect(()=>{
     //console.log('isTBGJson1 : ',isTBGJson1);
-    console.log('필드 BoxNum : ' ,props.BoxNum);
-    console.log('필드 groupNum : ',props.groupNum);
+    // console.log('필드 BoxNum : ' ,props.BoxNum);
+    // console.log('필드 groupNum : ',props.groupNum);
   })
   
   const getValue = (e) => {

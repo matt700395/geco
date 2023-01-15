@@ -1,10 +1,11 @@
 import React from "react";
-import TeamTextField from "./TeamTextField";
+import DashTextField from "./DashTextField ";
 import '../../assets/css/TeamBox.css'
 import { useState } from "react";
 
-export default function VictoryBox (props) {
+export default function DashVictoryBox (props) {
   const [valueTeambox, setValueTeambox ] = useState();
+
 
   const getValue = (e) => {// 값이 변해도 TeamTextField에서 onChange가 동작을 안함
 
@@ -12,16 +13,10 @@ export default function VictoryBox (props) {
     };
 
 
-    
     return(
-      <TeamTextField
+      <DashTextField
       groupNum={props.groupNum} BoxNum={props.BoxNum} teamname = {props.teamname}
                 setValueTeambox = {setValueTeambox} onChange={getValue} />
     );
 
 }
-
-
-
-
-

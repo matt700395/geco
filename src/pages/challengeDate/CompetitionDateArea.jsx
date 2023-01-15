@@ -1,63 +1,48 @@
 import React from "react";
-import DatePickerBox from "../../components/challenge/DatePickerBox";
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { LocalizationProvider } from "@mui/x-date-pickers";
-import Stack from '@mui/material/Stack';
 import { DesktopDatePicker } from "@mui/x-date-pickers";
 import TextField  from '@mui/material/TextField';
 import dayjs from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 function CompetitionDateArea (props) {
-    const [isStartDate, setStartDate ] = useState();
-    const [isEndDate, setEndDate ] = useState();
+    const [isStartDate, setStartDate ] = React.useState(dayjs('2023/01/01'));
+    const [isEndDate, setEndDate ] = React.useState(dayjs('2023/01/01'));
     const location = useLocation();
     const navigate = useNavigate();
-    const [value, setValue] = React.useState(dayjs('2023/01/01'));
-    const [value2, setValue2] = React.useState(dayjs('2023/01/01'));
 
-    const [formValue, setformValue] = useState({
-        isStartDate: isStartDate,
-        isEndDate: isEndDate,
-      });
+  useEffect(()=>{
+    console.log('airtable id : ', location.state.airtableId );
+    console.log('airtable id2 : ', props.base );
 
-    // const handleChange = (event) => {
-    //   console.log('event : ', event);
+  },[])
 
-    //     setformValue({
-    //       ...formValue,
-    //       [event.target.name]: event.target.setValue,
-    //     });
-    //     console.log(formValue);
-    //     console.log("event.target.setValue", event.target.setValue);
-    //     console.log("event.target.name", event.target.name);
-    //   }
 
+    // 모집 시작날짜 추출
     const handleChangeDate = (newValue) => {
         console.log('newValue : ', JSON.stringify(newValue));
 
         let setdate = JSON.stringify(newValue);
         setdate = setdate.split('T', 1);
-        setdate = setdate[0].replace(`"`, '');
-        
+        setdate = setdate[0].replace(`"`, '').replace(/-/g, '.');
         console.log('consoel : ', setdate);
-        
-        setValue(newValue);
-
+        setStartDate(setdate);
       };
+
+      //모집 마감날짜 추출
       const handleChangeDate2 = (newValue) => {
         console.log('newValue : ', JSON.stringify(newValue));
 
         let setdate = JSON.stringify(newValue);
         setdate = setdate.split('T', 1);
-        setdate = setdate[0].replace(`"`, '');
+        setdate = setdate[0].replace(`"`, '').replace(/-/g, '.');
 
         console.log('consoel2 : ', setdate);
-        setValue(newValue);
+        setEndDate(setdate);
 
       };
-
 
     const dateSave = () => {
         console.log("isStartDate",isStartDate );
@@ -82,9 +67,10 @@ function CompetitionDateArea (props) {
               navigate('/detail',
               { state: {
                 airtableId : record.getId(), //상세페이지로 넘어가면서 
-
               }})
+
             });
+            
           });
     }
 
@@ -98,21 +84,12 @@ function CompetitionDateArea (props) {
         <>
         <section className="shop-area pt-120 pb-90">
           <div className="container">
-
-            {/* <div style={{ display:'flex'}}>
-              <DatePickerBox name='startDate' setValue = {setStartDate} onChange = {handleChange}></DatePickerBox>
-
-              <DatePickerBox name = 'endDate' setValue = {setEndDate} onChange = {handleChange}></DatePickerBox>
-            </div> */}
-
-          <div >
-
           <div style = {{display:'flex', marginLeft:'12vw'}}>
             <LocalizationProvider der dateAdapter={AdapterDayjs}>
                   <DesktopDatePicker
                       label="모집 시작날짜"
                       inputFormat="YYYY/MM/DD"
-                      value={value}
+                      value={isStartDate}
                       onChange={handleChangeDate}
                       renderInput={(params) => <TextField {...params} />} 
                     />
@@ -121,20 +98,19 @@ function CompetitionDateArea (props) {
                     <DesktopDatePicker
                       label="모집 마감날짜"
                       inputFormat="YYYY/MM/DD"
-                      value={value2}
+                      value={isEndDate}
                       onChange={handleChangeDate2}
                       renderInput={(params) => <TextField {...params} />} 
                     />
             </LocalizationProvider>
             </div>
-          </div>
+
 
             <div className="newsletter-form" style={styleButton}>
               <button onClick={dateSave}>
               Next
               </button>
             </div>
-
           </div>
         </section>
 

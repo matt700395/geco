@@ -19,7 +19,9 @@ import Challenge from './pages/challenge/Challenge';
 import CompetitionStart from './pages/challenge/CompetitionStart';
 // import Airtable from 'airtable';
 import CompetitionDate from './pages/challengeDate/CompetitionDate';
-import Tournament from './pages/tornament/Tournament';
+import CompetitionDetail from './pages/challengeDetail/CompetitionDetail';
+import Tournament from './pages/tornament/Tornament';
+import Dashboard from './pages/dashboard/Dashboard';
 
 // import Loader from "react-js-loader";
 // var Airtable = require('airtable');
@@ -75,8 +77,8 @@ function App() {
         <Route path="date" element={<CompetitionDate base = {base} />} />
           <Route path="tournament" element={<Tournament base = {base}/>} />
 
-          {/* <Route path="detail" element={<CompetitionDetail  base = {base} />} /> */}
-          {/* <Route path="dash" element={<DashBoard  base = {base} />} /> */}
+          <Route path="detail" element={<CompetitionDetail  base = {base} />} />
+          <Route path="dash" element={<Dashboard  base = {base} />} />
 
       </Routes>
 
