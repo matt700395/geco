@@ -3,16 +3,12 @@ import {Link} from 'react-router-dom'
 import $ from 'jquery'
 import ScrollToTop from "react-scroll-to-top";
 
-
-
 export default function HeaderTwo() {
 
-  
   useEffect(()=>{
     //SubMenu Dropdown Toggle
       if ($('.menu-area li.menu-item-has-children ul').length) {
         $('.menu-area .navigation li.menu-item-has-children').append('<div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>');
-
       }
 
       //Mobile Nav Hide Show
@@ -27,11 +23,9 @@ export default function HeaderTwo() {
           $(this).prev('ul').slideToggle(500);
         });
 
-
         $('.menu-backdrop, .mobile-menu .close-btn').click (()=>{
           $('body').removeClass('mobile-menu-visible');
         })
-
 
         //Menu Toggle Btn
         $('.mobile-nav-toggler').on('click', function () {
@@ -39,7 +33,6 @@ export default function HeaderTwo() {
         });
       }
       
-
   },[]);
 
   useEffect(()=>{

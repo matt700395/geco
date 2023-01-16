@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch,Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomeTwo from './pages/homes/HomeTwo';
 import HomeOne from './pages/homes/HomeOne';
 import HomeThree from './pages/homes/HomeThree';
@@ -17,36 +17,17 @@ import HomeSix from './pages/homes/HomeSix';
 import HomeSeven from './pages/homes/HomeSeven';
 import Challenge from './pages/challenge/Challenge';
 import CompetitionStart from './pages/challenge/CompetitionStart';
-// import Airtable from 'airtable';
 import CompetitionDate from './pages/challengeDate/CompetitionDate';
 import CompetitionDetail from './pages/challengeDetail/CompetitionDetail';
 import Tournament from './pages/tornament/Tornament';
 import Dashboard from './pages/dashboard/Dashboard';
-
-// import Loader from "react-js-loader";
-// var Airtable = require('airtable');
-// const base = new Airtable({ apiKey: 'keyouedxPNGaCEXQw'}).base('app0QOzYj61gyWZnu');
+import DashboardAPI from './pages/dashboardAPI/DashboardAPI';
 
 var Airtable = require('airtable');
 var base = new Airtable({apiKey: 'keyouedxPNGaCEXQw'}).base('app0QOzYj61gyWZnu');
 
-
 function App() {
-      //  const [loading,setLoading] = useState(false);
 
-      //  useEffect(()=>{
-      //   setLoading(true)
-      //   setTimeout(()=>{
-      //     setLoading(false)
-      //   },8000)
-      //  },[])
-      //  {
-      //   loading ?(
-      //     <MoonLoader color={color} loading={loading} css={override} size={150} />
-      //   )
-         
-  
-      // }
   return (
     
     <div className="App">
@@ -75,10 +56,11 @@ function App() {
         
         <Route path="challenge/start" element={<CompetitionStart base = {base}/>} />
         <Route path="date" element={<CompetitionDate base = {base} />} />
-          <Route path="tournament" element={<Tournament base = {base}/>} />
+        <Route path="tournament" element={<Tournament base = {base}/>} />
 
-          <Route path="detail" element={<CompetitionDetail  base = {base} />} />
-          <Route path="dash" element={<Dashboard  base = {base} />} />
+        <Route path="detail" element={<CompetitionDetail  base = {base} />} />
+        <Route path="dash" element={<Dashboard  base = {base} />} />
+        <Route path=":id" element={<DashboardAPI  base = {base} />} />
 
       </Routes>
 
