@@ -36,7 +36,6 @@ function App() {
        <Routes>
 
         <Route path="" element={<HomeTwo/>} />
-
         <Route path="index-2" element={<HomeOne/>} />
         <Route path="index-3" element={<HomeThree/>} />
         <Route path="shop" element={<Shop/>} />
