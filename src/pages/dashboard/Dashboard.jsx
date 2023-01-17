@@ -7,11 +7,14 @@ import DashboardArea from './DashboardArea';
 
 function Dashboard(props) {
   return (
-	<>
+	<>,
 	 <HeaderTwo/>
      <main>
         <BreadCrumb/>
+        <div style={{ height : '100vh'}}>
         <DashboardArea base = {props.base}/>
+        </div>
+
 	 </main>
 	 <Footer/>
    

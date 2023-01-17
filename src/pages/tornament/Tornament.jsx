@@ -7,15 +7,21 @@ import TournamentArea from './TournamentArea';
 
 
 function Tournament(props) {
+
+
   return (
 	<>
-	 <HeaderTwo/>
-     <main>
+
+    <HeaderTwo/>
+    <main >
         <BreadCrumb/>
-        <TournamentArea base = {props.base}/>
-	 </main>
-	 <Footer/>
-   
+        <div>
+          <TournamentArea base = {props.base}/>
+        </div>
+
+    </main>
+    <Footer/>
+
 	</>
   )
 }

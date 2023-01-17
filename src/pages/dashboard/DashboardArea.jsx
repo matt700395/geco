@@ -18,6 +18,23 @@ function DashboardArea(props) {
   const [ isName, setName ] = useState();
   const location = useLocation();
 
+  //우승자 셋팅 값 Group1
+  const [ winnerG0_0, setWG0_0 ] = useState('');
+  const [ winnerG0_1, setWG0_1 ] = useState('');
+  const [ winnerG0_2, setWG0_2 ] = useState('');
+  const [ winnerG0_3, setWG0_3 ] = useState('');
+
+
+  //우승자 셋팅 값 Group2
+  const [ winnerG1_0, setWG1_0 ] = useState('');
+  const [ winnerG1_1, setWG1_1 ] = useState('');
+
+
+  //우승자 셋팅 값 Group3
+  const [ winnerG2_0, setWG2_0 ] = useState('');
+
+
+
   useLayoutEffect(() => {
     console.log('effect 실행');
     props.base('galaxy')//여기 적는게 airtable 의 table 이름임
@@ -65,15 +82,28 @@ function DashboardArea(props) {
       <p>대회제목 : {isTitle}</p>
       <p>대회코드 : {props.base.airtableId}</p>
       
-      <div style={{width:'100%', display:'flex', justifyContent:'center', alignItems:'center', marginBottom:'9rem'}}>
+      <div style={{width:'100%', height:'auto', display:'flex', justifyContent:'center', alignItems:'center'}}>
         <div style={{display : 'flex'}}>
-          <DashBoxGroup1 groupNum = {0} data = {isGroup0}/>
-          <DashBoxGroup2 groupNum = {1} data = {isGroup1}/>
-          <DashBoxGroup3 groupNum = {2} data = {isGroup2}/>
-          <DashBoxGroup4 groupNum = {3} data = {isGroup3} />
+
+            <DashBoxGroup1 groupNum = {0} data = {isGroup0} base = {props.base} airtableId = {location.state.airtableId}
+              setWG0_0 = {setWG0_0} setWG0_1 = {setWG0_1} setWG0_2 = {setWG0_2} setWG0_3 = {setWG0_3} />
+            <div style= {{padding:'1rem'}} ></div>
+
+            <DashBoxGroup2 groupNum = {1} data = {isGroup1} base = {props.base} airtableId = {location.state.airtableId}
+              winnerG0_0 = {winnerG0_0} winnerG0_1 = {winnerG0_1} winnerG0_2 = {winnerG0_2} winnerG0_3 = {winnerG0_3}
+              setWG1_0 = {setWG1_0} setWG1_1 = {setWG1_1}
+              />
+            <div style= {{padding:'1rem'}} ></div>
+            <DashBoxGroup3 groupNum = {2} data = {isGroup2} base = {props.base} airtableId = {location.state.airtableId}
+              winnerG1_0 = {winnerG1_0} winnerG1_1 = {winnerG1_1}
+              setWG2_0 = {setWG2_0}
+            />
+            <DashBoxGroup4 groupNum = {3} data = {isGroup3} base = {props.base} airtableId = {location.state.airtableId}
+              winnerG2_0={winnerG2_0}
+            />
+
         </div>
       </div>
-
 
     </>
   )
