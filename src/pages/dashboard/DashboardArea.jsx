@@ -78,10 +78,10 @@ function DashboardArea(props) {
 
   return (
     <>
-
+{/* 
       <p>대회제목 : {isTitle}</p>
-      <p>대회코드 : {props.base.airtableId}</p>
-      
+      <p>대회코드 : {props.base.airtableId}</p> */}
+        <div style= {{paddingTop:'4.5rem'}} ></div>
       <div style={{width:'100%', height:'auto', display:'flex', justifyContent:'center', alignItems:'center'}}>
         <div style={{display : 'flex'}}>
 
@@ -101,9 +101,9 @@ function DashboardArea(props) {
             <DashBoxGroup4 groupNum = {3} data = {isGroup3} base = {props.base} airtableId = {location.state.airtableId}
               winnerG2_0={winnerG2_0}
             />
-
         </div>
       </div>
+      <div style= {{paddingBottom:'8rem'}} ></div>
 
     </>
   )

@@ -11,7 +11,7 @@ function Dashboard(props) {
 	 <HeaderTwo/>
      <main>
         <BreadCrumb/>
-        <div style={{ height : '100vh'}}>
+        <div style={{ height : 'auto'}}>
         <DashboardArea base = {props.base}/>
         </div>
 
