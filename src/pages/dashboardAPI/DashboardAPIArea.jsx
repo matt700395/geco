@@ -19,15 +19,12 @@ function DashboardAPIArea(props) {
   const params = useParams();
 
   useLayoutEffect(() => {
-    // console.log('effect 실행');
-    // console.log('params id : ', params.id)
-
 
   //axios 사용
   axios
       .get(
-        'https://api.airtable.com/v0/app0QOzYj61gyWZnu/galaxy?view=Grid%20view',
-        { headers: { Authorization: "Bearer " + 'keyouedxPNGaCEXQw' } },
+        `https://api.airtable.com/v0/app0QOzYj61gyWZnu/galaxy?filterByFormula=({Name} = ${params.id})`,
+        { headers: { Authorization: "Bearer keyouedxPNGaCEXQw" } },
       )
       .then(resp => {
         groupMap(resp.data.records);

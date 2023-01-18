@@ -104,7 +104,6 @@ function DashboardArea(props) {
         </div>
       </div>
       <div style= {{paddingBottom:'8rem'}} ></div>
-
     </>
   )
 }
