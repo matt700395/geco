@@ -22,13 +22,14 @@ function CompetitionDateArea (props) {
 
     // 모집 시작날짜 추출
     const handleChangeDate = (newValue) => {
+        setStartDate(setdate);
         console.log('newValue : ', JSON.stringify(newValue));
 
         let setdate = JSON.stringify(newValue);
         setdate = setdate.split('T', 1);
         setdate = setdate[0].replace(`"`, '').replace(/-/g, '.');
         console.log('consoel : ', setdate);
-        setStartDate(setdate);
+
       };
 
       //모집 마감날짜 추출
@@ -103,7 +104,7 @@ function CompetitionDateArea (props) {
                     />
             </LocalizationProvider>
             </div>
-            
+
             <div className="newsletter-form" style={styleButton}>
               <button onClick={dateSave}>
               Next

@@ -12,6 +12,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import TextField  from '@mui/material/TextField';
 import dayjs from 'dayjs';
 
+
 function CompetitionArea (props) {
     const [isGameselect, setGameselect] = useState('test');
     const [isTitle, setTitle ] = useState();
@@ -20,8 +21,8 @@ function CompetitionArea (props) {
     const [ isMatch, setMatch ] = useState();
     //const [ isGetId, setGetId ] = useState();
     const nevigate = useNavigate();
-    const [isStartDate, setStartDate ] = React.useState(dayjs('2023/01/01'));
-    const [isEndDate, setEndDate ] = React.useState(dayjs('2023/01/01'));
+    const [isStartDate, setStartDate ] = React.useState(dayjs('2023-01-01T21:11:54'));
+    const [isEndDate, setEndDate ] = React.useState(dayjs('2023-01-01T21:11:54'));
 
     useEffect(()=>{
         console.log('base', props.base);
@@ -33,25 +34,27 @@ function CompetitionArea (props) {
 
     // 모집 시작날짜 추출
     const handleChangeDate = (newValue) => {
+      setStartDate(newValue);
       console.log('newValue : ', JSON.stringify(newValue));
 
       let setdate = JSON.stringify(newValue);
       setdate = setdate.split('T', 1);
       setdate = setdate[0].replace(`"`, '').replace(/-/g, '.');
       console.log('consoel : ', setdate);
-      setStartDate(setdate);
     };
 
     //모집 마감날짜 추출
     const handleChangeDate2 = (newValue) => {
+      setEndDate(newValue);
       console.log('newValue : ', JSON.stringify(newValue));
+      console.log('enddate : ', isEndDate);
 
       let setdate = JSON.stringify(newValue);
       setdate = setdate.split('T', 1);
       setdate = setdate[0].replace(`"`, '').replace(/-/g, '.');
 
       console.log('consoel2 : ', setdate);
-      setEndDate(setdate);
+
 
     };
 
@@ -118,8 +121,15 @@ function CompetitionArea (props) {
           <div style= {{paddingBottom:'1rem'}} ></div>
 
           <div style = {{display:'flex', marginLeft:'12vw'}}>
-            <LocalizationProvider der dateAdapter={AdapterDayjs}>
-              <DesktopDatePicker
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              {/* <DesktopDatePicker
+                  label="모집 시작날짜"
+                  inputFormat="YYYY/MM/DD"
+                  value={isStartDate}
+                  onChange={handleChangeDate}
+                  renderInput={(params) => <TextField {...params} />} 
+                /> */}
+                              <DesktopDatePicker
                   label="모집 시작날짜"
                   inputFormat="YYYY/MM/DD"
                   value={isStartDate}
