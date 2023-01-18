@@ -22,11 +22,15 @@ import CompetitionDetail from './pages/challengeDetail/CompetitionDetail';
 import Tournament from './pages/tornament/Tornament';
 import Dashboard from './pages/dashboard/Dashboard';
 import DashboardAPI from './pages/dashboardAPI/DashboardAPI';
+import { useEffect } from 'react';
 
 var Airtable = require('airtable');
 var base = new Airtable({apiKey: 'keyouedxPNGaCEXQw'}).base('app0QOzYj61gyWZnu');
 
 function App() {
+  useEffect(()=>{
+    console.log('base', base);
+  })
 
   return (
     

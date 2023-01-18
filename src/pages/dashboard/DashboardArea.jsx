@@ -81,7 +81,7 @@ function DashboardArea(props) {
 {/* 
       <p>대회제목 : {isTitle}</p>
       <p>대회코드 : {props.base.airtableId}</p> */}
-        <div style= {{paddingTop:'4.5rem'}} ></div>
+    <div style= {{paddingTop:'4.5rem'}} ></div>
       <div style={{width:'100%', height:'auto', display:'flex', justifyContent:'center', alignItems:'center'}}>
         <div style={{display : 'flex'}}>
 

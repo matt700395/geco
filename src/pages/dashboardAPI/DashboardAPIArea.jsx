@@ -1,12 +1,14 @@
 import React from 'react'
 import { useState, useLayoutEffect  } from 'react';
 import { useLocation } from 'react-router';
-import DashBoxGroup1 from '../../components/dashboard/DashBoxGroup1';
-import DashBoxGroup2 from '../../components/dashboard/DashBoxGroup2';
-import DashBoxGroup3 from '../../components/dashboard/DashBoxGroup3';
-import DashBoxGroup4 from '../../components/dashboard/DashBoxGroup4';
 import axios from "axios";
 import { useParams } from 'react-router';
+import ApiDashBoxGroup1 from '../../components/dashboardApi/ApiDashBoxGroup1';
+import ApiDashBoxGroup2 from '../../components/dashboardApi/ApiDashBoxGroup2';
+import ApiDashBoxGroup3 from '../../components/dashboardApi/ApiDashBoxGroup3';
+import ApiDashBoxGroup4 from '../../components/dashboardApi/ApiDashBoxGroup4';
+
+
 
 
 function DashboardAPIArea(props) {
@@ -19,12 +21,13 @@ function DashboardAPIArea(props) {
   const params = useParams();
 
   useLayoutEffect(() => {
-
+    // console.log('props.base.airtableId', props.base.airtableId)
+    console.log('base', props.base)
   //axios 사용
   axios
       .get(
         `https://api.airtable.com/v0/app0QOzYj61gyWZnu/galaxy?filterByFormula=({Name} = ${params.id})`,
-        { headers: { Authorization: "Bearer keyouedxPNGaCEXQw" } },
+        { headers: { Authorization: "Bearer " + "keyouedxPNGaCEXQw" } },
       )
       .then(resp => {
         groupMap(resp.data.records);
@@ -63,19 +66,25 @@ function DashboardAPIArea(props) {
 
   return (
     <>
-
-      <p>대회제목 : {isTitle}</p>
-      <p>대회코드 : {props.base.airtableId}</p>
-      
-      <div style={{width:'100%', display:'flex', justifyContent:'center', alignItems:'center', marginBottom:'9rem'}}>
+      <div style= {{paddingTop:'4.5rem'}} ></div>
+            <div style={{width:'100%', height:'auto', display:'flex', justifyContent:'center', alignItems:'center'}}>
         <div style={{display : 'flex'}}>
-          <DashBoxGroup1 groupNum = {0} data = {isGroup0}/>
-          <DashBoxGroup2 groupNum = {1} data = {isGroup1}/>
-          <DashBoxGroup3 groupNum = {2} data = {isGroup2}/>
-          <DashBoxGroup4 groupNum = {3} data = {isGroup3} />
+
+            <ApiDashBoxGroup1 groupNum = {0} data = {isGroup0} base = {props.base} airtableId = {props.base.airtableId}
+              />
+            <div style= {{padding:'1rem'}} ></div>
+
+            <ApiDashBoxGroup2 groupNum = {1} data = {isGroup1} base = {props.base} airtableId = {props.base.airtableId}
+              />
+            <div style= {{padding:'1rem'}} ></div>
+
+            <ApiDashBoxGroup3 groupNum = {2} data = {isGroup2} base = {props.base} airtableId = {props.base.airtableId}
+            />
+            <ApiDashBoxGroup4 groupNum = {3} data = {isGroup3} base = {props.base} airtableId = {props.base.airtableId}
+            />
         </div>
       </div>
-
+      <div style= {{paddingBottom:'8rem'}} ></div>
 
     </>
   )
