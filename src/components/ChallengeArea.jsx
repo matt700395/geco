@@ -1,5 +1,5 @@
 import React from 'react'
-import CompetitionStart from './CompetitionStart'
+import CompetitionStart from '../pages/challenge/CompetitionArea'
 
 function ChallengeArea(props) {
   return (

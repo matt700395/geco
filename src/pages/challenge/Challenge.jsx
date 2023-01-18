@@ -2,7 +2,7 @@ import React from 'react'
 import HeaderTwo from '../../components/header/HeaderTwo'
 import Footer from '../../components/footer/Footer'
 import BreadCrumb from './BreadCrumb';
-import ChallengeArea from './ChallengeArea';
+import CompetitionArea from './CompetitionArea';
 
 function Challenge(props) {
   return (
@@ -10,7 +10,7 @@ function Challenge(props) {
 	 <HeaderTwo/>
      <main>
         <BreadCrumb/>
-        <ChallengeArea base = {props.base}/>
+        <CompetitionArea base={props.base} />
 	 </main>
 	 <Footer/>
 	</>

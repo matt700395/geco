@@ -16,7 +16,7 @@ import HomeFive from './pages/homes/HomeFive';
 import HomeSix from './pages/homes/HomeSix';
 import HomeSeven from './pages/homes/HomeSeven';
 import Challenge from './pages/challenge/Challenge';
-import CompetitionStart from './pages/challenge/CompetitionStart';
+import CompetitionStart from './pages/challenge/CompetitionArea';
 import CompetitionDate from './pages/challengeDate/CompetitionDate';
 import CompetitionDetail from './pages/challengeDetail/CompetitionDetail';
 import Tournament from './pages/tornament/Tornament';

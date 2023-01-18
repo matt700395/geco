@@ -68,7 +68,6 @@ function CompetitionDateArea (props) {
               { state: {
                 airtableId : record.getId(), //상세페이지로 넘어가면서 
               }})
-
             });
             
           });
@@ -104,8 +103,7 @@ function CompetitionDateArea (props) {
                     />
             </LocalizationProvider>
             </div>
-
-
+            
             <div className="newsletter-form" style={styleButton}>
               <button onClick={dateSave}>
               Next
