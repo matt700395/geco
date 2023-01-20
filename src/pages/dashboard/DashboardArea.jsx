@@ -6,6 +6,7 @@ import DashBoxGroup2 from '../../components/dashboard/DashBoxGroup2';
 import DashBoxGroup3 from '../../components/dashboard/DashBoxGroup3';
 import DashBoxGroup4 from '../../components/dashboard/DashBoxGroup4';
 
+let dashboard_id = 0
 
 function DashboardArea(props) {
   const [value, setValue ] =useState();
@@ -56,6 +57,9 @@ function DashboardArea(props) {
     records.map((row) => {
       //필요한거 1. 제목(title), 코드(name), 대진표상황
       if(row._rawJson.id === location.state.airtableId){
+          dashboard_id = row._rawJson.fields.Name
+          console.log('dashboard_id : ',dashboard_id)
+
           console.log('제목추출완료',row._rawJson.fields.title);
           console.log('그룹0',row._rawJson.fields.group0.split(','));
           setGroup0(row._rawJson.fields.group0.split(','));
@@ -74,6 +78,24 @@ function DashboardArea(props) {
       }
   }
     )}
+
+    const handleClick = () => {
+      let string = window.location.href;
+      console.log(string.split('dash')[0]);
+      string = string.split('dash')[0];
+      // console.log(window.location.hostname);
+      // console.log(window.location.hostname.toString() +'/'+ dashboard_id)
+
+      // console.log('dashboard_id2 :',dashboard_id)
+
+      // navigator.clipboard.writeText(window.location.hostname.toString() +'/'+ dashboard_id);
+      navigator.clipboard.writeText(string + dashboard_id);
+    }
+
+    const styleButton = {
+      marginLeft:'45%',
+      marginTop:'5vh'
+    }
 
 
   return (
@@ -99,6 +121,12 @@ function DashboardArea(props) {
               winnerG2_0={winnerG2_0}
             />
         </div>
+      </div>
+
+      <div className="newsletter-form" style={styleButton}>
+            <button onClick={handleClick}>
+              Link copy
+            </button>
       </div>
       <div style= {{paddingBottom:'8rem'}} ></div>
     </>
