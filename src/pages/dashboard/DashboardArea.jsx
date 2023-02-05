@@ -9,14 +9,11 @@ import DashBoxGroup4 from '../../components/dashboard/DashBoxGroup4';
 let dashboard_id = 0
 
 function DashboardArea(props) {
-  const [value, setValue ] =useState();
-  const [record , setRecord ] = useState('');
   const [ isTitle, setTitle ] = useState('');
   const [ isGroup0, setGroup0 ] = useState([]);
   const [ isGroup1, setGroup1 ] = useState([]);
   const [ isGroup2, setGroup2 ] = useState([]);
   const [ isGroup3, setGroup3 ] = useState([]);
-  const [ isName, setName ] = useState();
   const location = useLocation();
 
   //우승자 셋팅 값 Group1
@@ -34,10 +31,9 @@ function DashboardArea(props) {
   //우승자 셋팅 값 Group3
   const [ winnerG2_0, setWG2_0 ] = useState('');
 
-
-
   useLayoutEffect(() => {
     console.log('effect 실행');
+
     props.base('galaxy')//여기 적는게 airtable 의 table 이름임
     .select({view: 'Grid view'})
     .eachPage((records) => {
@@ -49,6 +45,8 @@ function DashboardArea(props) {
     },  function done(err) {
       if (err) { console.error(err); return; }
   })
+
+  
   }, [])
 
 
@@ -81,14 +79,7 @@ function DashboardArea(props) {
 
     const handleClick = () => {
       let string = window.location.href;
-      console.log(string.split('dash')[0]);
       string = string.split('dash')[0];
-      // console.log(window.location.hostname);
-      // console.log(window.location.hostname.toString() +'/'+ dashboard_id)
-
-      // console.log('dashboard_id2 :',dashboard_id)
-
-      // navigator.clipboard.writeText(window.location.hostname.toString() +'/'+ dashboard_id);
       navigator.clipboard.writeText(string + dashboard_id);
     }
 

@@ -26,9 +26,10 @@ import { useEffect } from 'react';
 import Test from './pages/Test';
 
 var Airtable = require('airtable');
-var base = new Airtable({apiKey: 'keyouedxPNGaCEXQw'}).base('app0QOzYj61gyWZnu');
+const base = new Airtable({apiKey: 'keyouedxPNGaCEXQw'}).base('app0QOzYj61gyWZnu');
 
 function App() {
+
   useEffect(()=>{
     console.log('base', base);
   })
@@ -65,14 +66,11 @@ function App() {
         <Route path="detail" element={<CompetitionDetail  base = {base} />} />
         <Route path="dash" element={<Dashboard  base = {base} />} />
         <Route path=":id" element={<DashboardAPI  base = {base} />} />
-        <Route path="test" element={<Test/>} />
+        <Route path="test" element={<Test  base = {base}/>} />
 
       </Routes>
 
      </Router>
-
-
-
      
     </div>
   );

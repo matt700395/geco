@@ -7,6 +7,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { ContextApi } from "../../components/contextapi/ContextApi";
+import TeamBoxGroup from "../../components/tornament/TeamBoxGroup";
+import TeamBoxHorizontal from "../../components/tornament/TeamBoxHorizontal";
 
 export default function TournamentArea (props) {
     const [ isTBGJson, setTBGJson ] = useState(
@@ -41,9 +43,6 @@ export default function TournamentArea (props) {
             }
             records.forEach(function(record) {
               console.log("group0 : ",record.get('group0'));
-              console.log("group1 : ",record.get('group1'));
-              console.log("group2 : ",record.get('group2'));
-              console.log("group3 : ",record.get('group3'));
               
               navigate('/dash',
               { state: {
@@ -61,17 +60,17 @@ export default function TournamentArea (props) {
     return(
       <section className="shop-area pt-120 pb-90">
       <div className="container">
-                <div style={{width:'100%', height:'auto', display:'flex', justifyContent:'center', alignItems:'center'}}>
-                    <div style={{display : 'flex'}}>
+                <div style={{width:'100%', height:'auto', justifyContent:'center', alignItems:'center'}}>
+                {/* <div style={{width:'100%', height:'auto', display:'flex', justifyContent:'center', alignItems:'center'}}> */}
+                    {/* <div style={{display : 'flex'}}> */}
                         < ContextApi.Provider value = {{isTBGJson, setTBGJson}} >
-
-                            <TeamBoxGroup1 groupNum = {0} />
+                            <TeamBoxGroup groupNum = {0} />
+                            {/* <TeamBoxGroup1 groupNum = {0} />
                             <TeamBoxGroup2 groupNum = {1} />
                             <TeamBoxGroup4 groupNum = {2} />
-                            <TeamBoxGroup5 groupNum = {3} />
-                          
+                            <TeamBoxGroup5 groupNum = {3} /> */}
                         </ContextApi.Provider>
-                    </div>
+                    {/* </div> */}
                 </div>
 
                 <div className="newsletter-form" style={styleButton}>

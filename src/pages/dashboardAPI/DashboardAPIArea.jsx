@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState, useLayoutEffect  } from 'react';
-import { useLocation } from 'react-router';
 import axios from "axios";
 import { useParams } from 'react-router';
 import ApiDashBoxGroup1 from '../../components/dashboardApi/ApiDashBoxGroup1';
@@ -9,15 +8,12 @@ import ApiDashBoxGroup3 from '../../components/dashboardApi/ApiDashBoxGroup3';
 import ApiDashBoxGroup4 from '../../components/dashboardApi/ApiDashBoxGroup4';
 
 
-
-
 function DashboardAPIArea(props) {
   const [ isTitle, setTitle ] = useState('');
   const [ isGroup0, setGroup0 ] = useState([]);
   const [ isGroup1, setGroup1 ] = useState([]);
   const [ isGroup2, setGroup2 ] = useState([]);
   const [ isGroup3, setGroup3 ] = useState([]);
-  const location = useLocation();
   const params = useParams();
 
   useLayoutEffect(() => {
