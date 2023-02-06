@@ -97,7 +97,8 @@ export default function HeaderTwo() {
                   <div className="main-menu  menu-style-two">
                     <nav>
                       <div className="logo">
-                        <Link to="/"><img src="assets/img/logo/logo.png" alt="Logo" /></Link>
+                        {/* <Link to="/"><img src="assets/img/logo/logo.png" alt="Logo" /></Link> */}
+                        <Link to="/"><img src="assets/img/logo/galaxt_e_sports.png" alt="Logo" height={60} margintop='100px'/></Link>
                       </div>
                       <div className="navbar-wrap push-menu d-none d-lg-flex">
                         <ul className="navigation">

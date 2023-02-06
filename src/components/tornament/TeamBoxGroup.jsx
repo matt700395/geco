@@ -33,7 +33,3 @@ function TeamBoxGroup(props) {
 }
 
 export default TeamBoxGroup
-
-
-
-
